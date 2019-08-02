@@ -1,0 +1,24 @@
+{
+  "name": "google-news-scraper",
+  "version": "1.0.0",
+  "description": "A simple google news scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scraper",
+    "google",
+    "google-news",
+    "news",
+    "scrap"
+  ],
+  "author": "Balasubramanian",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.6.0",
+    "puppeteer": "^1.19.0"
+  }
+}
