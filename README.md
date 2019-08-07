@@ -1,6 +1,13 @@
 # Google Data Scraper
 
-Google Data Scraper is a node based scraping tool built on top of puppeteer library. Currently it supports google news scraping. 
+Google Data Scraper is a node based scraping tool built using puppeteer and cheerio libraries. 
+
+Currently it supports 
+* Google News 
+* Google Trends
+* Google Translate
+
+Upcoming - Multipage scraping
 
 ## Getting Started
 
@@ -15,20 +22,50 @@ npm install google-data-scraper --save
 * Returns a promise 
 ```
 Promise<{
-    searchPhrase: any;
+    searchPhrase: string;
     results: {
-        linkText: any;
-        linkHref: any;
+        linkText: string;
+        linkHref: string;
     }[];
 }[]>
 ```
+#### getGoogleDailySearchTrends
+* Accepts a geo location string (for example, United states - 'US')
+* Returns a promise
+```
+Promise<{
+    linkText: string;
+    linkHref: string;
+}[]>
+```
 
-#### How to use
+#### translateStuff
+* Accepts array of strings to translate and target language code as string.
+* Please refer https://ctrlq.org/code/19899-google-translate-languages target language codes
+* Returns a promise
+```
+Promise<{
+    searchPhrase: string;
+    result: string;
+}[]>
+```
+
+## Examples
 ```
 const scraper = require("google-data-scraper");
 
-scraper.getGoogleNews(["AI", "USA"])
+scraper.getGoogleNews(["AI", "mars"])
     .then((data) => {
+        console.log(JSON.stringify(data));
+    })
+
+scraper.translateStuff(['omae wa mou shindeiru', 'Nani?'],'en')
+    .then((data) => {
+        console.log(JSON.stringify(data));
+    })
+
+scraper.getGoogleDailySearchTrends('US')
+    .then((data)=>{
         console.log(JSON.stringify(data));
     })
 ```
@@ -36,11 +73,12 @@ scraper.getGoogleNews(["AI", "USA"])
 ## Built With
 
 * [Puppeteer](https://www.npmjs.com/package/puppeteer)
+* [Cheerio](https://www.npmjs.com/package/cheerio)
 
 ## Authors
 
-* **Balasubramanian** - [git/bala](https://github.com/sbalasubramanian14)
+* **Balasubramanian** - [git](https://github.com/sbalasubramanian14)
 
 ## License
 
-This project is licensed under the ISC License
+This project is licensed under the MIT License

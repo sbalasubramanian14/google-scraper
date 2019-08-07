@@ -1,7 +1,7 @@
 {
   "name": "google-data-scraper",
-  "version": "1.0.1",
-  "description": "A simple google scraper",
+  "version": "1.0.4",
+  "description": "Data scraper for scraping google's website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,13 +9,18 @@
   "keywords": [
     "scraper",
     "google",
-    "google-news",
-    "news",
-    "scrap"
+    "google news",
+    "google trends",
+    "google translate"
   ],
   "author": "Balasubramanian",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "puppeteer": "^1.19.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/sbalasubramanian14/google-scraper.git"
   }
 }
